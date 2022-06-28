@@ -73,7 +73,7 @@ bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheG
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
     tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
-
+    cout << "OR" << endl;
     delete_LweSample(temp_result);
 }
 
@@ -99,7 +99,7 @@ bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
     tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
-
+cout << "AND" << endl;
     delete_LweSample(temp_result);
 }
 
@@ -125,7 +125,7 @@ bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
     tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
-
+cout << "XOR" << endl;
     delete_LweSample(temp_result);
 }
 
