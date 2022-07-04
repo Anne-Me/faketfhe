@@ -55,7 +55,7 @@ bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheG
 */
 EXPORT void
 bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
-     cout<<"TFHE_AND";
+    cout<<"TFHE_AND";
 }
 
 
@@ -66,7 +66,8 @@ bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
 */
 EXPORT void
 bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
- cout<<"TFHE_XOR"}
+    cout<<"TFHE_XOR";
+}
 
 
 /*
