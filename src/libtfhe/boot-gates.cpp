@@ -59,22 +59,7 @@ bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
 */
 EXPORT void
 bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
-    static const Torus32 MU = modSwitchToTorus32(1, 8);
-    const LweParams *in_out_params = bk->params->in_out_params;
-
-    LweSample *temp_result = new_LweSample(in_out_params);
-
-    //compute: (0,1/8) + ca + cb
-    static const Torus32 OrConst = modSwitchToTorus32(1, 8);
-    lweNoiselessTrivial(temp_result, OrConst, in_out_params);
-    lweAddTo(temp_result, ca, in_out_params);
-    lweAddTo(temp_result, cb, in_out_params);
-
-    //if the phase is positive, the result is 1/8
-    //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
-    cout << "OR" << endl;
-    delete_LweSample(temp_result);
+    
 }
 
 
@@ -85,22 +70,7 @@ bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheG
 */
 EXPORT void
 bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
-    static const Torus32 MU = modSwitchToTorus32(1, 8);
-    const LweParams *in_out_params = bk->params->in_out_params;
-
-    LweSample *temp_result = new_LweSample(in_out_params);
-
-    //compute: (0,-1/8) + ca + cb
-    static const Torus32 AndConst = modSwitchToTorus32(-1, 8);
-    lweNoiselessTrivial(temp_result, AndConst, in_out_params);
-    lweAddTo(temp_result, ca, in_out_params);
-    lweAddTo(temp_result, cb, in_out_params);
-
-    //if the phase is positive, the result is 1/8
-    //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
-cout << "AND" << endl;
-    delete_LweSample(temp_result);
+    
 }
 
 
@@ -111,22 +81,7 @@ cout << "AND" << endl;
 */
 EXPORT void
 bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
-    static const Torus32 MU = modSwitchToTorus32(1, 8);
-    const LweParams *in_out_params = bk->params->in_out_params;
-
-    LweSample *temp_result = new_LweSample(in_out_params);
-
-    //compute: (0,1/4) + 2*(ca + cb)
-    static const Torus32 XorConst = modSwitchToTorus32(1, 4);
-    lweNoiselessTrivial(temp_result, XorConst, in_out_params);
-    lweAddMulTo(temp_result, 2, ca, in_out_params);
-    lweAddMulTo(temp_result, 2, cb, in_out_params);
-
-    //if the phase is positive, the result is 1/8
-    //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
-cout << "XOR" << endl;
-    delete_LweSample(temp_result);
+    
 }
 
 
