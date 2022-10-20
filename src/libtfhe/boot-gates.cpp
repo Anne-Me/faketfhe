@@ -55,7 +55,7 @@ bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheG
 */
 EXPORT void
 bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
-cout << "---------new tfhe";
+
 }
 
 
